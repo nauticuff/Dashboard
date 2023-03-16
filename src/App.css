@@ -3,9 +3,9 @@
   --red: hsl(356, 69%, 56%);
   --fb: hsl(208, 92%, 53%);
   --tt: hsl(203, 89%, 53%);
-  --insta: linear-gradient(to right, #fdc468, #df4996);
+  --insta: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
   --yt: hsl(348, 97%, 39%);
-  --d-toggle: linear-gradient(to right, #378fe6, #3eda82);
+  --d-toggle: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
   --l-toggle: hsl(230, 22%, 74%);
 
   --d-bg: hsl(230, 17%, 14%);
@@ -22,17 +22,30 @@
 
   --overview-font-size: 1rem;
   --font-size-sm: .875rem;
-  --font-size-md: 1.75rem;
-  --font-size-lg: 2.5rem;
-  --font-size-xl: 3.5rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 3rem;
 
   --font-weight-bold: 700;
+}
+
+.insta {
+  background: var(--insta);
 }
 
 .app {
   min-height: 100vh;
   background: var(--d-bg);
   font-family: 'Inter', sans-serif;
+  
+}
+
+.light {
+  background: var(--l-bg);
+}
+
+.dark {
+  background: var(--d-bg);
 }
 
 .app p {
@@ -40,27 +53,57 @@
 }
 
 .app h1 {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
 }
 
 .app h2 {
-  font-size: var(--font-size-lg)
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
 }
 
-.light p {
-  color: var(--l-text-light)
-}
-
-.light h1 {
-  color: var(--l-text-dark);
-}
-
-.light h2 {
-  color: var(--l-text-dark)
+.app h3 {
+  font-size: var(--font-size-md);
 }
 
 .toggle {
+  appearance: none;
+  position: relative;
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 25px;
+  background-image: var(--d-toggle);
+  outline: none;
+  animation: color 2s alternate infinite;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 1.1rem;
+  width: 1.1rem;
+  background: var(--d-top-bg);
+  transition: left .3s;
+  
+}
+
+.toggle:checked {
+  background: var(--l-toggle);
+}
+
+.toggle:checked::after {
+  left: 75%;
+  background: rgb(255, 255, 255);
+}
+
+.toggle:hover{
   background: var(--d-toggle);
 }
+
+
+
 
