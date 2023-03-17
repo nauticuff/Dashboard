@@ -1,3 +1,5 @@
+
+/* Colors, font-sizes, and font weights obtained from design folder*/
 :root {
   --green: hsl(163, 72%, 41%);
   --red: hsl(356, 69%, 56%);
@@ -29,6 +31,7 @@
   --font-weight-bold: 700;
 }
 
+/* Needed because tailwind limitations */
 .insta {
   background: var(--insta);
 }
