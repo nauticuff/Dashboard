@@ -1,7 +1,12 @@
-import { useState, useEffect } from "react";
+import { useRef } from "react";
 
-const Nav = () => {
-    //const [theme, setTheme] = useState('light');
+const Nav = (props) => {
+    const checkboxRef = useRef(null);
+
+    const handleClick = (e) => {
+        props.onClick();
+        checkboxRef.current.blur();
+    }
 
     return (
         <div className="flex flex-col sm:flex-row sm:items-center justify-between py-7 lg:pt-0">
@@ -14,7 +19,7 @@ const Nav = () => {
                 <div className="hover:opacity-80 cursor-pointer">
                     <label className="flex justify-between cursor-pointer gap-3 font-bold text-[var(--l-text-light)]">
                         Dark Mode
-                        <input className="toggle cursor-pointer" type="checkbox"></input>
+                        <input ref={checkboxRef} onClick={() => handleClick()} className="toggle cursor-pointer" type="checkbox"></input>
                     </label>
                 </div>
             </div>
